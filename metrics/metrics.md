@@ -71,7 +71,7 @@ ex) 8.00 이라는 Load 값은 논리적인 CPU 수가 4개인 상황이라면 �
 
 #### vmstat
 
-가상메모리 통계 정보를 확인할 수 있다.
+cpu 사용량 통계 정보를 확인할 수 있다.
 
 ```shell
 ❯ docker run -it ubuntu
@@ -136,3 +136,84 @@ root@b9ef86c52f9b:/# ps -eo pid,comm,time,etime
 시스템의 부하가 높은 시점에 실행중인 프로세스의 stack trace를 확인했을 때 특정 부분이 많이 보인다면 그 부분을 병목지점으로 생각할 수 있다.
 
 stack trace 혹은 thread dump는 짧은 시간(5~10초 주기로) 최소 2회~3회 이상 생성해서 비교하며 확인하는 것을 권장한다.
+
+## 메모리
+
+### Virtual Memory
+
+![virtual memory](./images/memory-1.png)
+
+- 각 프로세스별로 큰 선형 메모리 공간을 제공
+- 물리 메모리 위치는 OS에 의해 관리
+- 물리 메모리보다 큰 가상 메모리 공간 제공 가능 (디스크를 이용한 SWAP을 이용. 그러나 성능 저하가 있다.)
+- 특정 Page를 다른 프로세스들 간에 매핑(Shared Memory)
+
+메모리 사용량 관련해서 확인할 수 있는 지표 2가지.
+
+- Virtual Memory Size (VSZ)
+    - 프로세스가 접근할 수 있는 가상 메모리의 크기
+    - **공유 라이브러리의 영역 미포함**
+- Resident Set Size (RSS)
+    - 메인 메모리에 할당된 메모리 크기
+    - **공유 라이브러리의 영역 포함**
+        - ![virtual memory](./images/memory-2.png)
+    - SWAP 미 포함
+
+### 모니터링 도구
+
+#### vmstat
+
+가상메모리 통계 정보를 확인할 수 있다.
+
+```shell
+❯ docker run -it ubuntu
+
+root@b9ef86c52f9b:/# vmstat
+procs -----------memory---------- ---swap-- -----io---- -system-- ------cpu-----
+ r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa st
+ 2  0  69716 1376708 240924 1833804    0    2    55   325  751 1144  5  2 93  0  0
+
+root@b9ef86c52f9b:/# vmstat 5
+procs -----------memory---------- ---swap-- -----io---- -system-- ------cpu-----
+ r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa st
+ 2  0  69716 1382064 240928 1833948    0    2    55   324  750 1143  5  2 93  0  0
+ 1  0  69716 1383048 240932 1834004    0    0     0   169 4919 8233  1  1 98  0  0
+ 1  0  69716 1382048 240936 1834004    0    0     0    61 3394 5745  1  1 99  0  0
+```
+
+- free: 사용 가능한 메모리양
+- buff: Buffer Cache에 있는 메모리
+- cache: Page Cache에 있는 메모리
+- si: Page-in 된 메모리
+- so: Page-out 된 메모리
+
+> Buffer Cache  
+> : Data Buffer로서 block device(예. HDD) driver에 의해 사용, 디스크 장치의 고정된 크기의 block을 캐싱
+>
+> Page Cache  
+> : 디스크상에 저장된 데이터의 접근 속도 향상을 위한 캐시, 파일/디렉토리 I/O 성능 향상, 가능한 많은 메모리 영역을 사용, App에서 사용할 메모리가 부족해지면, kswaped Deamon에 의해 해제(반납)
+
+#### ps
+
+프로세스 상태(Process Status)를 확인할 수 있다.
+
+```shell
+root@b9ef86c52f9b:/# ps aux
+USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root         1  0.0  0.0   4116  3472 pts/0    Ss   13:39   0:00 bash
+root        13  0.0  0.0   5904  2884 pts/0    R+   13:46   0:00 ps aux
+```
+
+- User: 프로세스 소유자
+- PID: 정수 형태의 프로세스 고유 식별자
+- %MEM: 메인 메모리 사용량(RSS)의 전체 시스템에 대한 비율
+- RSS: 프로세스의 주 메모리 사용 크기
+- VSZ: 프로세스의 가상 메모리 사용 크기
+
+#### top
+
+![top](./images/memory-3.png)
+
+- VIRT: Virtual Memory 영역 크기
+- RES: 메인 메모리에서 사용하는 영역 크기(Shared Memory 영역 포함)
+- %MEM: 메인 메모리 사용량(RSS)의 전체 시스템에 대한 비율
