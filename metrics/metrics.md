@@ -5,7 +5,7 @@
 
 - CPU
     - CPU 자원이 부족한가?
-    - CPU 사용 유형 중 System 이나 IO Wait의 사용률이 높은가?
+    - CPU 사용 유형 중 System 이나 I/O Wait의 사용률이 높은가?
     - 프로세스별 CPU 사용률 분포는 균등한가?
 - 메모리
     - 메모리 자원이 부족한가?
@@ -23,13 +23,116 @@
     - ps: 프로세스 정보를 리포팅해준다.
     - vmstat: 전체 메모리, 사용자별 메모리 등... virtual 메모리 사용량을 확인할 수 있다.
     - sar: CPU, 메모리 사용량의 실시간 통계 정보를 확인할 수 있다.
-    - iostat: 디스크 장치로의 요청량에 대한 통계 정보를 확인할 수 있다.
-    - netstat: 네트워크 장치에 대한 통계 정보를 확인할 수 있다.
-    - mpstat: 프로세스 통계 정보를 확인할 수 있다.
-    - pidstat: 특정 프로세스에 대한 CPU, 메모리, IO 통계 정보를 확인할 수 있다.
+    - iostat: 디스크 장치로의 요청량에 대한 통계 정보를 확인할 수 있다. er
+    - pidstat: 특정 프로세스에 대한 CPU, 메모리, I/O 통계 정보를 확인할 수 있다.
 
 ## CPU
 
-## 메모리
+- CPU 사용률 : (Kernel idle thread를 제외한) 다음 thread 들에 의해 사용된 시간의 백분율(%)
+    - user-level application thread
+    - kernel thread
+    - interrupt 처리
+- Load average : CPU에 처리 요청된 작업들 중 실행중인 것과 대기중인 것을 수치화 한 것
+    - 논리적 CPU: 운영체제가 인지하는 CPU
+    - ![cpu](./images/cpu-1.png)
+    - 논리적 CPU 마다 실행하기 위해 대기하는 Run Queue를 갖고 있다.
+- User-Time / Kernel-Time
+    - ![cpu](./images/cpu-2.png)
+    - User-Time
+        - user-level application 코드를 실행하는데 소비한 시간
+    - Kernel-Time
+        - kernel-level 코드를 실행하는데 소비한 시간
+        - system call 처리
+        - interrupt 처리
+        - I/O 처리(대기)
+- Elapsed Time / (CPU) Time
+    - Elapsed Time: 프로세스가 시작해서 종료할 때 까지의 경과 시간
+    - (CPU) Time: 프로세스가 실제로 논리 CPU를 사용한 시간
+    - 터미널에서 ```time sleep 5```을 실행해보자.
 
-## 디스크
+### 모니터링 도구
+
+#### uptime
+
+```shell
+❯ uptime
+22:29  up 48 days,  4:19, 2 users, load averages: 2.94 3.71 4.13
+```
+
+- 시스템 실행중인 시간 확인
+- Load Average: 특정 시간 단위의 Load 평균 값
+    - 첫번째 값: 최근 1분 동안 load avg
+    - 두번째 값: 최근 5분 동안 load avg
+    - 세번째 값: 최근 15분 동안 load avg
+
+시간 단위의 Load 평균 값들을 통해서 Load의 추이를 알 수 있다. (Load가 증가하는지 감소하는지)
+Load의 값은 논리적인 CPU 수에 따라서(상황에 따라) 부하의 정도가 다르다.  
+ex) 8.00 이라는 Load 값은 논리적인 CPU 수가 4개인 상황이라면 부하가 200% 이지만, 논리적인 CPU 수가 16개인 상황이라면 부하가 50%인 것이다.
+
+#### vmstat
+
+가상메모리 통계 정보를 확인할 수 있다.
+
+```shell
+❯ docker run -it ubuntu
+
+root@b9ef86c52f9b:/# vmstat
+procs -----------memory---------- ---swap-- -----io---- -system-- ------cpu-----
+ r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa st
+ 2  0  69716 1376708 240924 1833804    0    2    55   325  751 1144  5  2 93  0  0
+
+root@b9ef86c52f9b:/# vmstat 5
+procs -----------memory---------- ---swap-- -----io---- -system-- ------cpu-----
+ r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa st
+ 2  0  69716 1382064 240928 1833948    0    2    55   324  750 1143  5  2 93  0  0
+ 1  0  69716 1383048 240932 1834004    0    0     0   169 4919 8233  1  1 98  0  0
+ 1  0  69716 1382048 240936 1834004    0    0     0    61 3394 5745  1  1 99  0  0
+```
+
+- r: 실행중 또는 Run Queue에 대기 중인 task 수
+- b: uninterruptible sleep task 수 (I/O 작업 이후 대기하거나, Lock이 풀리기를 대기하는 수)
+- us: user-time (%)
+- sy: kernel-time (%)
+- id: idle time (%)
+- wa: I/O 대기 시간 (%) (ex. Disk 읽기 기다림)
+
+#### ps
+
+프로세스 상태(Process Status)를 확인할 수 있다.
+
+```shell
+root@b9ef86c52f9b:/# ps aux
+USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root         1  0.0  0.0   4116  3472 pts/0    Ss   13:39   0:00 bash
+root        13  0.0  0.0   5904  2884 pts/0    R+   13:46   0:00 ps aux
+```
+
+- User: 프로세스 소유자
+- PID: 정수 형태의 프로세스 고유 식별자
+- $CPU: CPU 사용률
+- TIME: 해당 프로세스 생성 이후부터 소비한 전체 CPU 시간(user + system)
+
+다음과 같이 특정 값만 조회하는 것도 가능하다.
+
+```shell
+root@b9ef86c52f9b:/# ps -eo pid,comm,time,etime
+  PID COMMAND             TIME     ELAPSED
+    1 bash            00:00:00       11:15
+   19 ps              00:00:00       00:00
+```
+
+#### top
+
+![top](./images/cpu-3.png)
+
+- USER: 프로세스 소유자
+- PID: 정수 형태의 프로세스 고유 식별자
+- $CPU: CPU 사용률
+- TIME+: CPU 사용 시간
+- COMMAND: 명령어
+
+#### jstack, pstack, TDA(Thread Dump Analyzer)
+
+시스템의 부하가 높은 시점에 실행중인 프로세스의 stack trace를 확인했을 때 특정 부분이 많이 보인다면 그 부분을 병목지점으로 생각할 수 있다.
+
+stack trace 혹은 thread dump는 짧은 시간(5~10초 주기로) 최소 2회~3회 이상 생성해서 비교하며 확인하는 것을 권장한다.
