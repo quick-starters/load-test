@@ -217,3 +217,51 @@ root        13  0.0  0.0   5904  2884 pts/0    R+   13:46   0:00 ps aux
 - VIRT: Virtual Memory 영역 크기
 - RES: 메인 메모리에서 사용하는 영역 크기(Shared Memory 영역 포함)
 - %MEM: 메인 메모리 사용량(RSS)의 전체 시스템에 대한 비율
+
+## 디스크
+
+### 모니터링 도구
+
+#### df
+
+디스크 공간 사용량
+
+```shell
+root@b9ef86c52f9b:/# df -h
+Filesystem      Size  Used Avail Use% Mounted on
+overlay          59G   11G   45G  20% /
+tmpfs            64M     0   64M   0% /dev
+tmpfs           3.4G     0  3.4G   0% /sys/fs/cgroup
+shm              64M     0   64M   0% /dev/shm
+/dev/vda1        59G   11G   45G  20% /etc/hosts
+tmpfs           3.4G     0  3.4G   0% /proc/acpi
+tmpfs           3.4G     0  3.4G   0% /sys/firmware
+```
+
+#### du
+
+파일/디렉토리의 디스크 사용량
+
+```shell
+root@b9ef86c52f9b:/# du -h --max-depth=1
+20K     ./root
+4.0K    ./tmp
+0       ./sys
+du: cannot access './proc/38/task/38/fd/4': No such file or directory
+du: cannot access './proc/38/task/38/fdinfo/4': No such file or directory
+du: cannot access './proc/38/fd/3': No such file or directory
+du: cannot access './proc/38/fdinfo/3': No such file or directory
+0       ./proc
+4.0K    ./boot
+4.0K    ./mnt
+73M     ./usr
+4.5M    ./var
+20K     ./run
+4.0K    ./srv
+4.0K    ./media
+628K    ./etc
+4.0K    ./opt
+0       ./dev
+4.0K    ./home
+78M     .
+```
