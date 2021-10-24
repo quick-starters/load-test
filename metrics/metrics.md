@@ -34,10 +34,8 @@
     - interrupt 처리
 - Load average : CPU에 처리 요청된 작업들 중 실행중인 것과 대기중인 것을 수치화 한 것
     - 논리적 CPU: 운영체제가 인지하는 CPU
-    - ![cpu](./images/cpu-1.png)
     - 논리적 CPU 마다 실행하기 위해 대기하는 Run Queue를 갖고 있다.
 - User-Time / Kernel-Time
-    - ![cpu](./images/cpu-2.png)
     - User-Time
         - user-level application 코드를 실행하는데 소비한 시간
     - Kernel-Time
@@ -123,8 +121,6 @@ root@b9ef86c52f9b:/# ps -eo pid,comm,time,etime
 
 #### top
 
-![top](./images/cpu-3.png)
-
 - USER: 프로세스 소유자
 - PID: 정수 형태의 프로세스 고유 식별자
 - $CPU: CPU 사용률
@@ -141,8 +137,6 @@ stack trace 혹은 thread dump는 짧은 시간(5~10초 주기로) 최소 2회~3
 
 ### Virtual Memory
 
-![virtual memory](./images/memory-1.png)
-
 - 각 프로세스별로 큰 선형 메모리 공간을 제공
 - 물리 메모리 위치는 OS에 의해 관리
 - 물리 메모리보다 큰 가상 메모리 공간 제공 가능 (디스크를 이용한 SWAP을 이용. 그러나 성능 저하가 있다.)
@@ -156,7 +150,6 @@ stack trace 혹은 thread dump는 짧은 시간(5~10초 주기로) 최소 2회~3
 - Resident Set Size (RSS)
     - 메인 메모리에 할당된 메모리 크기
     - **공유 라이브러리의 영역 포함**
-        - ![virtual memory](./images/memory-2.png)
     - SWAP 미 포함
 
 ### 모니터링 도구
@@ -211,8 +204,6 @@ root        13  0.0  0.0   5904  2884 pts/0    R+   13:46   0:00 ps aux
 - VSZ: 프로세스의 가상 메모리 사용 크기
 
 #### top
-
-![top](./images/memory-3.png)
 
 - VIRT: Virtual Memory 영역 크기
 - RES: 메인 메모리에서 사용하는 영역 크기(Shared Memory 영역 포함)
