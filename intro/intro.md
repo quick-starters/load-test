@@ -22,7 +22,6 @@
             - PPS = Page Per Second
 - 응답시간(Response time)
     - 요청 한 후 부터 응답을 받을 때 까지 소요된 시간
-    - ![response-time](./images/image-1.png)
 
 ## 성능 테스트 절차
 
