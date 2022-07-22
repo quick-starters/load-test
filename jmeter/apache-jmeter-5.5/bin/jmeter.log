@@ -1,0 +1,205 @@
+2022-07-21 18:22:16,170 INFO o.a.j.u.JMeterUtils: Setting Locale to en_EN
+2022-07-21 18:22:16,189 INFO o.a.j.JMeter: Loading user properties from: user.properties
+2022-07-21 18:22:16,190 INFO o.a.j.JMeter: Loading system properties from: system.properties
+2022-07-21 18:22:16,196 INFO o.a.j.JMeter: Copyright (c) 1998-2022 The Apache Software Foundation
+2022-07-21 18:22:16,196 INFO o.a.j.JMeter: Version 5.5
+2022-07-21 18:22:16,196 INFO o.a.j.JMeter: java.version=17.0.3
+2022-07-21 18:22:16,196 INFO o.a.j.JMeter: java.vm.name=OpenJDK 64-Bit Server VM
+2022-07-21 18:22:16,196 INFO o.a.j.JMeter: os.name=Mac OS X
+2022-07-21 18:22:16,196 INFO o.a.j.JMeter: os.arch=x86_64
+2022-07-21 18:22:16,196 INFO o.a.j.JMeter: os.version=12.4
+2022-07-21 18:22:16,196 INFO o.a.j.JMeter: file.encoding=UTF-8
+2022-07-21 18:22:16,196 INFO o.a.j.JMeter: java.awt.headless=null
+2022-07-21 18:22:16,196 INFO o.a.j.JMeter: Max memory     =1073741824
+2022-07-21 18:22:16,197 INFO o.a.j.JMeter: Available Processors =12
+2022-07-21 18:22:16,204 INFO o.a.j.JMeter: Default Locale=English (EN)
+2022-07-21 18:22:16,204 INFO o.a.j.JMeter: JMeter  Locale=English (EN)
+2022-07-21 18:22:16,204 INFO o.a.j.JMeter: JMeterHome=/Users/DS/Downloads/apache-jmeter-5.5
+2022-07-21 18:22:16,204 INFO o.a.j.JMeter: user.dir  =/Users/DS/Downloads/apache-jmeter-5.5/bin
+2022-07-21 18:22:16,204 INFO o.a.j.JMeter: PWD       =/Users/DS/Downloads/apache-jmeter-5.5/bin
+2022-07-21 18:22:16,205 INFO o.a.j.JMeter: IP: 172.20.42.128 Name: daveio-PC.local FullName: 172.20.42.128
+2022-07-21 18:22:16,211 INFO o.a.j.JMeter: Loaded icon properties from org/apache/jmeter/images/icon.properties
+2022-07-21 18:22:16,536 INFO o.a.j.JMeterGuiLauncher: Setting LAF to: laf:com.apple.laf.AquaLookAndFeel
+2022-07-21 18:22:21,041 INFO o.a.j.s.FileServer: Default base='/Users/DS/Downloads/apache-jmeter-5.5/bin'
+2022-07-21 18:22:21,043 INFO o.a.j.g.a.Load: Loading file: /Users/DS/Downloads/apache-jmeter-5.5/bin/1_sseclient.jmx
+2022-07-21 18:22:21,044 INFO o.a.j.s.FileServer: Set new base='/Users/DS/Downloads/apache-jmeter-5.5/bin'
+2022-07-21 18:22:21,153 INFO o.a.j.s.SaveService: Testplan (JMX) version: 2.2. Testlog (JTL) version: 2.2
+2022-07-21 18:22:21,170 INFO o.a.j.s.SaveService: Using SaveService properties version 5.0
+2022-07-21 18:22:21,171 INFO o.a.j.s.SaveService: Using SaveService properties file encoding UTF-8
+2022-07-21 18:22:21,172 INFO o.a.j.s.SaveService: Loading file: /Users/DS/Downloads/apache-jmeter-5.5/bin/1_sseclient.jmx
+2022-07-21 18:22:21,186 INFO o.a.j.p.h.c.CookieManager: Settings: Delete null: true Check: true Allow variable: true Save: false Prefix: COOKIE_
+2022-07-21 18:22:21,188 INFO o.a.j.p.h.c.CacheManager: Will only cache the following methods: [GET]
+2022-07-21 18:22:21,438 INFO o.a.j.s.SampleResult: Note: Sample TimeStamps are START times
+2022-07-21 18:22:21,438 INFO o.a.j.s.SampleResult: sampleresult.default.encoding is set to ISO-8859-1
+2022-07-21 18:22:21,438 INFO o.a.j.s.SampleResult: sampleresult.useNanoTime=true
+2022-07-21 18:22:21,438 INFO o.a.j.s.SampleResult: sampleresult.nanoThreadSleep=5000
+2022-07-21 18:22:21,571 INFO o.a.j.v.ViewResultsFullVisualizer: Add JavaFX to your Java installation if you want to use renderer: org.apache.jmeter.visualizers.RenderInBrowser
+2022-07-21 18:22:21,621 INFO o.a.j.s.FileServer: Set new base='/Users/DS/Downloads/apache-jmeter-5.5/bin'
+2022-07-21 18:22:22,210 INFO o.a.j.e.StandardJMeterEngine: Running the test!
+2022-07-21 18:22:22,210 INFO o.a.j.s.SampleEvent: List of sample_variables: []
+2022-07-21 18:22:22,210 INFO o.a.j.s.SampleEvent: List of sample_variables: []
+2022-07-21 18:22:22,211 INFO o.a.j.e.u.CompoundVariable: Note: Function class names must contain the string: '.functions.'
+2022-07-21 18:22:22,212 INFO o.a.j.e.u.CompoundVariable: Note: Function class names must not contain the string: '.gui.'
+2022-07-21 18:22:22,234 INFO o.a.j.g.u.JMeterMenuBar: setRunning(true, *local*)
+2022-07-21 18:22:22,262 INFO o.a.j.e.StandardJMeterEngine: Starting ThreadGroup: 1 : Thread Group
+2022-07-21 18:22:22,263 INFO o.a.j.e.StandardJMeterEngine: Starting 1 threads for group Thread Group.
+2022-07-21 18:22:22,263 INFO o.a.j.e.StandardJMeterEngine: Thread will continue on error
+2022-07-21 18:22:22,263 INFO o.a.j.t.ThreadGroup: Starting thread group... number=1 threads=1 ramp-up=1 delayedStart=false
+2022-07-21 18:22:22,266 INFO o.a.j.t.ThreadGroup: Started thread group number 1
+2022-07-21 18:22:22,266 INFO o.a.j.e.StandardJMeterEngine: All thread groups have been started
+2022-07-21 18:22:22,266 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-1
+2022-07-21 18:22:23,176 INFO c.l.e.EventSource: Starting EventSource client using URI: https://stream.wikimedia.org/v2/stream/recentchange
+2022-07-21 18:22:24,624 INFO c.l.e.EventSource: Connected to Event Source stream.
+2022-07-21 18:22:33,187 INFO c.l.e.EventSource: Connection has been explicitly shut down by error handler
+2022-07-21 18:22:33,264 INFO o.a.j.t.JMeterThread: Thread is done: Thread Group 1-1
+2022-07-21 18:22:33,264 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-1
+2022-07-21 18:22:33,264 INFO o.a.j.e.StandardJMeterEngine: Notifying test listeners of end of test
+2022-07-21 18:22:33,264 INFO o.a.j.g.u.JMeterMenuBar: setRunning(false, *local*)
+2022-07-21 18:23:37,111 INFO o.a.j.e.StandardJMeterEngine: Running the test!
+2022-07-21 18:23:37,111 INFO o.a.j.s.SampleEvent: List of sample_variables: []
+2022-07-21 18:23:37,112 INFO o.a.j.g.u.JMeterMenuBar: setRunning(true, *local*)
+2022-07-21 18:23:37,152 INFO o.a.j.e.StandardJMeterEngine: Starting ThreadGroup: 1 : Thread Group
+2022-07-21 18:23:37,152 INFO o.a.j.e.StandardJMeterEngine: Starting 1 threads for group Thread Group.
+2022-07-21 18:23:37,152 INFO o.a.j.e.StandardJMeterEngine: Thread will continue on error
+2022-07-21 18:23:37,153 INFO o.a.j.t.ThreadGroup: Starting thread group... number=1 threads=1 ramp-up=1 delayedStart=false
+2022-07-21 18:23:37,153 INFO o.a.j.t.ThreadGroup: Started thread group number 1
+2022-07-21 18:23:37,153 INFO o.a.j.e.StandardJMeterEngine: All thread groups have been started
+2022-07-21 18:23:37,153 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-1
+2022-07-21 18:23:37,197 INFO c.l.e.EventSource: Starting EventSource client using URI: http://localhost:8080/rooms/1/msgs
+2022-07-21 18:23:47,200 INFO o.a.j.t.JMeterThread: Thread is done: Thread Group 1-1
+2022-07-21 18:23:47,200 INFO c.l.e.EventSource: Connection has been explicitly shut down by error handler
+2022-07-21 18:23:47,200 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-1
+2022-07-21 18:23:47,200 INFO o.a.j.e.StandardJMeterEngine: Notifying test listeners of end of test
+2022-07-21 18:23:47,201 INFO o.a.j.g.u.JMeterMenuBar: setRunning(false, *local*)
+2022-07-21 18:24:05,252 INFO o.a.j.e.StandardJMeterEngine: Running the test!
+2022-07-21 18:24:05,253 INFO o.a.j.s.SampleEvent: List of sample_variables: []
+2022-07-21 18:24:05,254 INFO o.a.j.g.u.JMeterMenuBar: setRunning(true, *local*)
+2022-07-21 18:24:05,284 INFO o.a.j.e.StandardJMeterEngine: Starting ThreadGroup: 1 : Thread Group
+2022-07-21 18:24:05,284 INFO o.a.j.e.StandardJMeterEngine: Starting 1 threads for group Thread Group.
+2022-07-21 18:24:05,284 INFO o.a.j.e.StandardJMeterEngine: Thread will continue on error
+2022-07-21 18:24:05,284 INFO o.a.j.t.ThreadGroup: Starting thread group... number=1 threads=1 ramp-up=1 delayedStart=false
+2022-07-21 18:24:05,285 INFO o.a.j.t.ThreadGroup: Started thread group number 1
+2022-07-21 18:24:05,285 INFO o.a.j.e.StandardJMeterEngine: All thread groups have been started
+2022-07-21 18:24:05,285 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-1
+2022-07-21 18:24:05,325 INFO c.l.e.EventSource: Starting EventSource client using URI: http://localhost:8080/rooms/1/msgs
+2022-07-21 18:24:07,631 INFO c.l.e.EventSource: Connected to Event Source stream.
+2022-07-21 18:24:15,327 INFO c.l.e.EventSource: Connection has been explicitly shut down by error handler
+2022-07-21 18:24:15,330 ERROR o.a.j.p.j.s.JSR223Sampler: Problem in JSR223 script JSR223 Sampler Connect to SSE server and receive a stream, message: javax.script.ScriptException: javax.json.JsonException: Non-existing name/value pair in the object for key title
+javax.script.ScriptException: javax.json.JsonException: Non-existing name/value pair in the object for key title
+	at org.codehaus.groovy.jsr223.GroovyScriptEngineImpl.eval(GroovyScriptEngineImpl.java:320) ~[groovy-jsr223-3.0.11.jar:3.0.11]
+	at org.codehaus.groovy.jsr223.GroovyCompiledScript.eval(GroovyCompiledScript.java:71) ~[groovy-jsr223-3.0.11.jar:3.0.11]
+	at javax.script.CompiledScript.eval(CompiledScript.java:93) ~[java.scripting:?]
+	at org.apache.jmeter.util.JSR223TestElement.processFileOrScript(JSR223TestElement.java:217) ~[ApacheJMeter_core.jar:5.5]
+	at org.apache.jmeter.protocol.java.sampler.JSR223Sampler.sample(JSR223Sampler.java:72) ~[ApacheJMeter_java.jar:5.5]
+	at org.apache.jmeter.threads.JMeterThread.doSampling(JMeterThread.java:651) ~[ApacheJMeter_core.jar:5.5]
+	at org.apache.jmeter.threads.JMeterThread.executeSamplePackage(JMeterThread.java:570) ~[ApacheJMeter_core.jar:5.5]
+	at org.apache.jmeter.threads.JMeterThread.processSampler(JMeterThread.java:501) ~[ApacheJMeter_core.jar:5.5]
+	at org.apache.jmeter.threads.JMeterThread.run(JMeterThread.java:268) ~[ApacheJMeter_core.jar:5.5]
+	at java.lang.Thread.run(Thread.java:833) ~[?:?]
+Caused by: javax.json.JsonException: Non-existing name/value pair in the object for key title
+	at org.glassfish.json.NodeReference$ObjectReference.get(NodeReference.java:221) ~[javax.json-1.1.4.jar:1.1.4]
+	at org.glassfish.json.JsonPointerImpl.getValue(JsonPointerImpl.java:160) ~[javax.json-1.1.4.jar:1.1.4]
+	at javax.json.JsonStructure.getValue(JsonStructure.java:60) ~[javax.json-1.1.4.jar:1.1.4]
+	at javax.json.JsonStructure$getValue.call(Unknown Source) ~[?:?]
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:47) ~[groovy-3.0.11.jar:3.0.11]
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:125) ~[groovy-3.0.11.jar:3.0.11]
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:139) ~[groovy-3.0.11.jar:3.0.11]
+	at Script3.run(Script3.groovy:53) ~[?:?]
+	at org.codehaus.groovy.jsr223.GroovyScriptEngineImpl.eval(GroovyScriptEngineImpl.java:317) ~[groovy-jsr223-3.0.11.jar:3.0.11]
+	... 9 more
+2022-07-21 18:24:15,334 INFO o.a.j.t.JMeterThread: Thread is done: Thread Group 1-1
+2022-07-21 18:24:15,334 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-1
+2022-07-21 18:24:15,335 INFO o.a.j.e.StandardJMeterEngine: Notifying test listeners of end of test
+2022-07-21 18:24:15,335 INFO o.a.j.g.u.JMeterMenuBar: setRunning(false, *local*)
+2022-07-21 18:27:56,254 INFO o.a.j.e.StandardJMeterEngine: Running the test!
+2022-07-21 18:27:56,255 INFO o.a.j.s.SampleEvent: List of sample_variables: []
+2022-07-21 18:27:56,256 INFO o.a.j.g.u.JMeterMenuBar: setRunning(true, *local*)
+2022-07-21 18:27:56,287 INFO o.a.j.e.StandardJMeterEngine: Starting ThreadGroup: 1 : Thread Group
+2022-07-21 18:27:56,288 INFO o.a.j.e.StandardJMeterEngine: Starting 1 threads for group Thread Group.
+2022-07-21 18:27:56,288 INFO o.a.j.e.StandardJMeterEngine: Thread will continue on error
+2022-07-21 18:27:56,288 INFO o.a.j.t.ThreadGroup: Starting thread group... number=1 threads=1 ramp-up=1 delayedStart=false
+2022-07-21 18:27:56,288 INFO o.a.j.t.ThreadGroup: Started thread group number 1
+2022-07-21 18:27:56,288 INFO o.a.j.e.StandardJMeterEngine: All thread groups have been started
+2022-07-21 18:27:56,288 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-1
+2022-07-21 18:27:56,328 INFO c.l.e.EventSource: Starting EventSource client using URI: http://localhost:8080/rooms/1/msgs
+2022-07-21 18:28:00,186 INFO c.l.e.EventSource: Connected to Event Source stream.
+2022-07-21 18:28:06,329 INFO c.l.e.EventSource: Connection has been explicitly shut down by error handler
+2022-07-21 18:28:06,330 ERROR o.a.j.p.j.s.JSR223Sampler: Problem in JSR223 script JSR223 Sampler Connect to SSE server and receive a stream, message: javax.script.ScriptException: javax.json.JsonException: A non-empty JSON Pointer must begin with a '/'
+javax.script.ScriptException: javax.json.JsonException: A non-empty JSON Pointer must begin with a '/'
+	at org.codehaus.groovy.jsr223.GroovyScriptEngineImpl.eval(GroovyScriptEngineImpl.java:320) ~[groovy-jsr223-3.0.11.jar:3.0.11]
+	at org.codehaus.groovy.jsr223.GroovyCompiledScript.eval(GroovyCompiledScript.java:71) ~[groovy-jsr223-3.0.11.jar:3.0.11]
+	at javax.script.CompiledScript.eval(CompiledScript.java:93) ~[java.scripting:?]
+	at org.apache.jmeter.util.JSR223TestElement.processFileOrScript(JSR223TestElement.java:217) ~[ApacheJMeter_core.jar:5.5]
+	at org.apache.jmeter.protocol.java.sampler.JSR223Sampler.sample(JSR223Sampler.java:72) ~[ApacheJMeter_java.jar:5.5]
+	at org.apache.jmeter.threads.JMeterThread.doSampling(JMeterThread.java:651) ~[ApacheJMeter_core.jar:5.5]
+	at org.apache.jmeter.threads.JMeterThread.executeSamplePackage(JMeterThread.java:570) ~[ApacheJMeter_core.jar:5.5]
+	at org.apache.jmeter.threads.JMeterThread.processSampler(JMeterThread.java:501) ~[ApacheJMeter_core.jar:5.5]
+	at org.apache.jmeter.threads.JMeterThread.run(JMeterThread.java:268) ~[ApacheJMeter_core.jar:5.5]
+	at java.lang.Thread.run(Thread.java:833) ~[?:?]
+Caused by: javax.json.JsonException: A non-empty JSON Pointer must begin with a '/'
+	at org.glassfish.json.JsonPointerImpl.<init>(JsonPointerImpl.java:90) ~[javax.json-1.1.4.jar:1.1.4]
+	at org.glassfish.json.JsonProviderImpl.createPointer(JsonProviderImpl.java:218) ~[javax.json-1.1.4.jar:1.1.4]
+	at javax.json.Json.createPointer(Json.java:346) ~[javax.json-1.1.4.jar:1.1.4]
+	at javax.json.JsonStructure.getValue(JsonStructure.java:60) ~[javax.json-1.1.4.jar:1.1.4]
+	at javax.json.JsonStructure$getValue.call(Unknown Source) ~[?:?]
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:47) ~[groovy-3.0.11.jar:3.0.11]
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:125) ~[groovy-3.0.11.jar:3.0.11]
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:139) ~[groovy-3.0.11.jar:3.0.11]
+	at Script4.run(Script4.groovy:53) ~[?:?]
+	at org.codehaus.groovy.jsr223.GroovyScriptEngineImpl.eval(GroovyScriptEngineImpl.java:317) ~[groovy-jsr223-3.0.11.jar:3.0.11]
+	... 9 more
+2022-07-21 18:28:06,331 INFO o.a.j.t.JMeterThread: Thread is done: Thread Group 1-1
+2022-07-21 18:28:06,331 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-1
+2022-07-21 18:28:06,331 INFO o.a.j.e.StandardJMeterEngine: Notifying test listeners of end of test
+2022-07-21 18:28:06,331 INFO o.a.j.g.u.JMeterMenuBar: setRunning(false, *local*)
+2022-07-21 18:28:50,189 INFO o.a.j.e.StandardJMeterEngine: Running the test!
+2022-07-21 18:28:50,190 INFO o.a.j.s.SampleEvent: List of sample_variables: []
+2022-07-21 18:28:50,191 INFO o.a.j.g.u.JMeterMenuBar: setRunning(true, *local*)
+2022-07-21 18:28:50,225 INFO o.a.j.e.StandardJMeterEngine: Starting ThreadGroup: 1 : Thread Group
+2022-07-21 18:28:50,225 INFO o.a.j.e.StandardJMeterEngine: Starting 1 threads for group Thread Group.
+2022-07-21 18:28:50,225 INFO o.a.j.e.StandardJMeterEngine: Thread will continue on error
+2022-07-21 18:28:50,225 INFO o.a.j.t.ThreadGroup: Starting thread group... number=1 threads=1 ramp-up=1 delayedStart=false
+2022-07-21 18:28:50,226 INFO o.a.j.t.ThreadGroup: Started thread group number 1
+2022-07-21 18:28:50,226 INFO o.a.j.e.StandardJMeterEngine: All thread groups have been started
+2022-07-21 18:28:50,226 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-1
+2022-07-21 18:28:50,260 INFO c.l.e.EventSource: Starting EventSource client using URI: http://localhost:8080/rooms/1/msgs
+2022-07-21 18:28:52,932 INFO c.l.e.EventSource: Connected to Event Source stream.
+2022-07-21 18:29:00,262 INFO c.l.e.EventSource: Connection has been explicitly shut down by error handler
+2022-07-21 18:29:00,263 INFO o.a.j.t.JMeterThread: Thread is done: Thread Group 1-1
+2022-07-21 18:29:00,263 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-1
+2022-07-21 18:29:00,263 INFO o.a.j.e.StandardJMeterEngine: Notifying test listeners of end of test
+2022-07-21 18:29:00,263 INFO o.a.j.g.u.JMeterMenuBar: setRunning(false, *local*)
+2022-07-21 18:29:31,236 INFO o.a.j.e.StandardJMeterEngine: Running the test!
+2022-07-21 18:29:31,237 INFO o.a.j.s.SampleEvent: List of sample_variables: []
+2022-07-21 18:29:31,238 INFO o.a.j.g.u.JMeterMenuBar: setRunning(true, *local*)
+2022-07-21 18:29:31,274 INFO o.a.j.e.StandardJMeterEngine: Starting ThreadGroup: 1 : Thread Group
+2022-07-21 18:29:31,274 INFO o.a.j.e.StandardJMeterEngine: Starting 1 threads for group Thread Group.
+2022-07-21 18:29:31,274 INFO o.a.j.e.StandardJMeterEngine: Thread will continue on error
+2022-07-21 18:29:31,274 INFO o.a.j.t.ThreadGroup: Starting thread group... number=1 threads=1 ramp-up=1 delayedStart=false
+2022-07-21 18:29:31,274 INFO o.a.j.t.ThreadGroup: Started thread group number 1
+2022-07-21 18:29:31,275 INFO o.a.j.e.StandardJMeterEngine: All thread groups have been started
+2022-07-21 18:29:31,275 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-1
+2022-07-21 18:29:31,305 INFO c.l.e.EventSource: Starting EventSource client using URI: http://localhost:8080/rooms/1/msgs
+2022-07-21 18:29:32,856 INFO c.l.e.EventSource: Connected to Event Source stream.
+2022-07-21 18:29:41,308 INFO c.l.e.EventSource: Connection has been explicitly shut down by error handler
+2022-07-21 18:29:41,308 INFO o.a.j.t.JMeterThread: Thread is done: Thread Group 1-1
+2022-07-21 18:29:41,308 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-1
+2022-07-21 18:29:41,309 INFO o.a.j.e.StandardJMeterEngine: Notifying test listeners of end of test
+2022-07-21 18:29:41,309 INFO o.a.j.g.u.JMeterMenuBar: setRunning(false, *local*)
+2022-07-21 18:31:21,783 INFO o.a.j.e.StandardJMeterEngine: Running the test!
+2022-07-21 18:31:21,783 INFO o.a.j.s.SampleEvent: List of sample_variables: []
+2022-07-21 18:31:21,785 INFO o.a.j.g.u.JMeterMenuBar: setRunning(true, *local*)
+2022-07-21 18:31:21,821 INFO o.a.j.e.StandardJMeterEngine: Starting ThreadGroup: 1 : Thread Group
+2022-07-21 18:31:21,821 INFO o.a.j.e.StandardJMeterEngine: Starting 1 threads for group Thread Group.
+2022-07-21 18:31:21,821 INFO o.a.j.e.StandardJMeterEngine: Thread will continue on error
+2022-07-21 18:31:21,821 INFO o.a.j.t.ThreadGroup: Starting thread group... number=1 threads=1 ramp-up=1 delayedStart=false
+2022-07-21 18:31:21,822 INFO o.a.j.t.ThreadGroup: Started thread group number 1
+2022-07-21 18:31:21,822 INFO o.a.j.e.StandardJMeterEngine: All thread groups have been started
+2022-07-21 18:31:21,822 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-1
+2022-07-21 18:31:21,850 INFO c.l.e.EventSource: Starting EventSource client using URI: http://localhost:8080/rooms/1/msgs
+2022-07-21 18:31:22,863 INFO c.l.e.EventSource: Connected to Event Source stream.
+2022-07-21 18:31:31,854 INFO c.l.e.EventSource: Connection has been explicitly shut down by error handler
+2022-07-21 18:31:31,854 INFO o.a.j.t.JMeterThread: Thread is done: Thread Group 1-1
+2022-07-21 18:31:31,854 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-1
+2022-07-21 18:31:31,855 INFO o.a.j.e.StandardJMeterEngine: Notifying test listeners of end of test
+2022-07-21 18:31:31,855 INFO o.a.j.g.u.JMeterMenuBar: setRunning(false, *local*)
