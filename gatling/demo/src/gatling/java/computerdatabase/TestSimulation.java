@@ -52,9 +52,11 @@ public class TestSimulation extends Simulation {
     ScenarioBuilder admins = scenario("Admins").exec(search, browse, create);
 
     {
-        setUp(
-                users.injectOpen(rampUsers(10).during(10)),
-                admins.injectOpen(rampUsers(2).during(10))
+        setUp(users.injectOpen(
+                nothingFor(5),
+                atOnceUsers(1),
+                rampUsers(5).during(10),
+                constantUsersPerSec(20).during(20))
         ).protocols(httpProtocol);
     }
 }
