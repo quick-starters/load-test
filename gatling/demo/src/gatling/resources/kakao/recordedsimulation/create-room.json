@@ -1,0 +1,7 @@
+{
+  "title": "#{roomTitle}",
+  "desc": "#{roomDesc}",
+  "hostId": #{userId},
+  "startDelay": #{roomStartDelay},
+  "expireDuration": #{roomExpireDuration}
+}
