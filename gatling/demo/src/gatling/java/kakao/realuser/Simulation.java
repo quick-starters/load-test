@@ -1,9 +1,8 @@
-package kakao;
+package kakao.realuser;
 
 import io.gatling.javaapi.core.ChainBuilder;
 import io.gatling.javaapi.core.Choice;
 import io.gatling.javaapi.core.ScenarioBuilder;
-import io.gatling.javaapi.core.Simulation;
 import io.gatling.javaapi.http.HttpProtocolBuilder;
 
 import java.time.Duration;
@@ -11,12 +10,12 @@ import java.time.Duration;
 import static io.gatling.javaapi.core.CoreDsl.*;
 import static io.gatling.javaapi.http.HttpDsl.http;
 
-public class RealUserSimulation extends Simulation {
-
-    private static final int USER_LIFETIME = Integer.parseInt(System.getProperty("USER_LIFETIME", "1"));
+public class Simulation extends io.gatling.javaapi.core.Simulation {
     private static final int USER_COUNT = Integer.parseInt(System.getProperty("USER_COUNT", "1"));
+    private static final int USER_LIFETIME = Integer.parseInt(System.getProperty("USER_LIFETIME", "1"));
 
     private HttpProtocolBuilder httpProtocol = http
+            .enableHttp2()
             .baseUrl("http://localhost:8080")
             .header("Cache-Control", "no-cache")
             .contentTypeHeader("application/json")
@@ -26,7 +25,7 @@ public class RealUserSimulation extends Simulation {
     public void before() {
         // TODO 각종 초기화 작업 (ex: 데이터베이스 테스트 데이터 설정)
         System.out.printf("부하 테스트를 시작합니다.%n");
-        System.out.printf("- 유저 수: %d%n", USER_COUNT);
+        System.out.printf("- 유저 수: %d명%n", USER_COUNT);
         System.out.printf("- 유저 생명 주기: %d초%n", USER_LIFETIME);
     }
 
@@ -39,9 +38,14 @@ public class RealUserSimulation extends Simulation {
             .pause(minPause, maxPause)
             .exec(Rooms.create)
             .pause(minPause, maxPause)
+            .exec(Rooms.getList)
+            .pause(minPause, maxPause)
             .exec(Rooms.enter)
             .pause(minPause, maxPause)
-            .during(USER_LIFETIME).on(exec(Messages.send));
+            .exec(Rooms.connectStream)
+            .pause(minPause, maxPause)
+            .during(USER_LIFETIME).on(pace(1).exec(Messages.send))
+            .exec(Rooms.disconnectStream);
 
         public static ChainBuilder normalUsers =
             exec(Users.create)
@@ -50,15 +54,11 @@ public class RealUserSimulation extends Simulation {
             .pause(minPause, maxPause)
             .exec(Rooms.enter)
             .pause(minPause, maxPause)
-            .during(USER_LIFETIME).on(exec(Messages.send));
-
+            .exec(Rooms.connectStream)
+            .pause(minPause, maxPause)
+            .during(USER_LIFETIME).on(pace(1).exec(Messages.send))
+            .exec(Rooms.disconnectStream);
     }
-
-    private final ScenarioBuilder hostUsers = scenario("Inject Hosts Scenario")
-            .exec(UserJourneys.hostUsers);
-
-    private final ScenarioBuilder normalUsers = scenario("Inject Participants Scenario")
-            .exec(UserJourneys.normalUsers);
 
     private final ScenarioBuilder randomUsers = scenario("Inject Random Users Scenario")
             .randomSwitch().on(
@@ -66,14 +66,14 @@ public class RealUserSimulation extends Simulation {
                     Choice.withWeight(90d, exec(UserJourneys.normalUsers))
             );
 
-
     // 랜덤한 유저 (호스트, 참가자) 주입
     {
         setUp(
                 randomUsers.injectOpen(
-                    rampUsers(USER_COUNT).during(10)
+                    rampUsers(USER_COUNT).during(30)
                 )
-        ).protocols(httpProtocol);
+        ).maxDuration(USER_LIFETIME)
+        .protocols(httpProtocol);
     }
 
     @Override
